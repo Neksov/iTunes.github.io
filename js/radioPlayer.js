@@ -6,7 +6,11 @@ export const radioPlayerInit = () => {
   const radioItem = document.querySelectorAll('.radio-item');
   const radioStop = document.querySelector('.radio-stop');
   const audio = new Audio();
+  const radioVolume = document.querySelector('.radio-volume');
+  const radioIconDown = document.querySelector('.radio-icon-down');
+  const radioIconUp = document.querySelector('.radio-icon-up');
 
+  let prevVolume = 0;
   audio.type = 'audio/aac';
   radioStop.disabled = true; //блокируем кнопку плей
 
@@ -50,4 +54,20 @@ export const radioPlayerInit = () => {
     changeIconPlay();
   });
 
+  radioVolume.addEventListener("input", () => { //добавляем аудио полосу
+    audio.volume = radioVolume.value / 100;
+  });
+
+  radioIconDown.addEventListener('click', () => {
+    if (audio.volume) {
+      audio.volume = 0;
+      radioVolume.value = 0
+    }
+  });
+  radioIconUp.addEventListener('click', () => {
+    if (audio.volume) {
+      audio.volume = 1;
+      radioVolume.value = 100;
+    }
+  });
 };

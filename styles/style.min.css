@@ -764,3 +764,19 @@ input[type=range]:focus::-ms-fill-upper {
 .video-icon {
   cursor: pointer;
 }
+
+.radio-icon-down {
+  margin-left: 50px;
+
+}
+
+.radio-volume,
+input {
+  max-width: 100px;
+  margin: 10px;
+
+}
+
+.radio-icon {
+  cursor: pointer;
+}
